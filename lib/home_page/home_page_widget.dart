@@ -12,14 +12,14 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key key}) : super(key: key);
+  const HomePageWidget({Key? key}) : super(key: key);
 
   @override
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
-  TextEditingController vinTextFieldController;
+  TextEditingController? vinTextFieldController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -29,7 +29,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await GetValuationCall.call(
-        vinNumber: vinTextFieldController.text,
+        vinNumber: vinTextFieldController!.text,
       );
     });
 
@@ -252,7 +252,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 controller: vinTextFieldController,
                                 onFieldSubmitted: (_) async {
                                   if (formKey.currentState == null ||
-                                      !formKey.currentState.validate()) {
+                                      !formKey.currentState!.validate()) {
                                     return;
                                   }
                                 },
@@ -323,14 +323,14 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     await GetValuationCall.call(
-                                      vinNumber: vinTextFieldController.text,
+                                      vinNumber: vinTextFieldController!.text,
                                     );
                                     await Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
                                             VehicleValuationReportWidget(
-                                          vin: vinTextFieldController.text,
+                                          vin: vinTextFieldController!.text,
                                         ),
                                       ),
                                     );

@@ -3,11 +3,11 @@ import 'package:rxdart/rxdart.dart';
 
 class SAValuesFirebaseUser {
   SAValuesFirebaseUser(this.user);
-  User user;
+  User? user;
   bool get loggedIn => user != null;
 }
 
-SAValuesFirebaseUser currentUser;
+SAValuesFirebaseUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
 Stream<SAValuesFirebaseUser> sAValuesFirebaseUserStream() =>
     FirebaseAuth.instance

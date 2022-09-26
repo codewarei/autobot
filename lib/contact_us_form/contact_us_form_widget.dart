@@ -9,16 +9,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ContactUsFormWidget extends StatefulWidget {
-  const ContactUsFormWidget({Key key}) : super(key: key);
+  const ContactUsFormWidget({Key? key}) : super(key: key);
 
   @override
   _ContactUsFormWidgetState createState() => _ContactUsFormWidgetState();
 }
 
 class _ContactUsFormWidgetState extends State<ContactUsFormWidget> {
-  TextEditingController emailtextfiledController;
-  TextEditingController fullNameContactUsController;
-  TextEditingController vinTextFieldController;
+  TextEditingController? emailtextfiledController;
+  TextEditingController? fullNameContactUsController;
+  TextEditingController? vinTextFieldController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -422,7 +422,7 @@ class _ContactUsFormWidgetState extends State<ContactUsFormWidget> {
                                   child: FFButtonWidget(
                                     onPressed: () async {
                                       if (formKey.currentState == null ||
-                                          !formKey.currentState.validate()) {
+                                          !formKey.currentState!.validate()) {
                                         return;
                                       }
                                     },

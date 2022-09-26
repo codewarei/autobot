@@ -11,15 +11,13 @@ abstract class PaymentsRecord
   static Serializer<PaymentsRecord> get serializer =>
       _$paymentsRecordSerializer;
 
-  @nullable
-  int get balance;
+  int? get balance;
 
-  @nullable
-  String get uid;
+  String? get uid;
 
-  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference get reference;
+  DocumentReference? get ffRef;
+  DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(PaymentsRecordBuilder builder) => builder
     ..balance = 0
@@ -30,11 +28,11 @@ abstract class PaymentsRecord
 
   static Stream<PaymentsRecord> getDocument(DocumentReference ref) => ref
       .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s)));
+      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
 
   static Future<PaymentsRecord> getDocumentOnce(DocumentReference ref) => ref
       .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s)));
+      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
 
   PaymentsRecord._();
   factory PaymentsRecord([void Function(PaymentsRecordBuilder) updates]) =
@@ -43,15 +41,21 @@ abstract class PaymentsRecord
   static PaymentsRecord getDocumentFromData(
           Map<String, dynamic> data, DocumentReference reference) =>
       serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference});
+          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
 }
 
 Map<String, dynamic> createPaymentsRecordData({
-  int balance,
-  String uid,
-}) =>
-    serializers.toFirestore(
-        PaymentsRecord.serializer,
-        PaymentsRecord((p) => p
-          ..balance = balance
-          ..uid = uid));
+  int? balance,
+  String? uid,
+}) {
+  final firestoreData = serializers.toFirestore(
+    PaymentsRecord.serializer,
+    PaymentsRecord(
+      (p) => p
+        ..balance = balance
+        ..uid = uid,
+    ),
+  );
+
+  return firestoreData;
+}

@@ -7,21 +7,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterWidget extends StatefulWidget {
-  const RegisterWidget({Key key}) : super(key: key);
+  const RegisterWidget({Key? key}) : super(key: key);
 
   @override
   _RegisterWidgetState createState() => _RegisterWidgetState();
 }
 
 class _RegisterWidgetState extends State<RegisterWidget> {
-  TextEditingController confirmPasswordTextFieldController;
+  TextEditingController? confirmPasswordTextFieldController;
 
-  bool confirmPasswordTextFieldVisibility;
-  TextEditingController emailTextFieldController;
-  TextEditingController fullNameTextFieldController;
-  TextEditingController passwordTextFieldController;
+  late bool confirmPasswordTextFieldVisibility;
+  TextEditingController? emailTextFieldController;
+  TextEditingController? fullNameTextFieldController;
+  TextEditingController? passwordTextFieldController;
 
-  bool passwordTextFieldVisibility;
+  late bool passwordTextFieldVisibility;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -339,8 +339,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
 
                                   final user = await createAccountWithEmail(
                                     context,
-                                    emailTextFieldController.text,
-                                    passwordTextFieldController.text,
+                                    emailTextFieldController!.text,
+                                    passwordTextFieldController!.text,
                                   );
                                   if (user == null) {
                                     return;

@@ -12,11 +12,11 @@ import 'package:google_fonts/google_fonts.dart';
 
 class VehicleValuationReportWidget extends StatefulWidget {
   const VehicleValuationReportWidget({
-    Key key,
+    Key? key,
     this.vin,
   }) : super(key: key);
 
-  final String vin;
+  final String? vin;
 
   @override
   _VehicleValuationReportWidgetState createState() =>
@@ -240,7 +240,7 @@ class _VehicleValuationReportWidgetState
                             ),
                           );
                         }
-                        final imageGetValuationResponse = snapshot.data;
+                        final imageGetValuationResponse = snapshot.data!;
                         return Image.network(
                           getJsonField(
                             imageGetValuationResponse.jsonBody,
@@ -315,7 +315,7 @@ class _VehicleValuationReportWidgetState
                                         );
                                       }
                                       final textGetValuationResponse =
-                                          snapshot.data;
+                                          snapshot.data!;
                                       return Text(
                                         getJsonField(
                                           textGetValuationResponse.jsonBody,
@@ -383,7 +383,7 @@ class _VehicleValuationReportWidgetState
                                         );
                                       }
                                       final textGetValuationResponse =
-                                          snapshot.data;
+                                          snapshot.data!;
                                       return Text(
                                         getJsonField(
                                           textGetValuationResponse.jsonBody,
@@ -451,7 +451,7 @@ class _VehicleValuationReportWidgetState
                                         );
                                       }
                                       final textGetValuationResponse =
-                                          snapshot.data;
+                                          snapshot.data!;
                                       return Text(
                                         getJsonField(
                                           textGetValuationResponse.jsonBody,
@@ -519,7 +519,7 @@ class _VehicleValuationReportWidgetState
                                         );
                                       }
                                       final textGetValuationResponse =
-                                          snapshot.data;
+                                          snapshot.data!;
                                       return Text(
                                         getJsonField(
                                           textGetValuationResponse.jsonBody,
@@ -615,7 +615,7 @@ class _VehicleValuationReportWidgetState
                                       );
                                     }
                                     final textGetValuationResponse =
-                                        snapshot.data;
+                                        snapshot.data!;
                                     return Text(
                                       getJsonField(
                                         textGetValuationResponse.jsonBody,
@@ -691,7 +691,7 @@ class _VehicleValuationReportWidgetState
                                     );
                                   }
                                   final textGetValuationResponse =
-                                      snapshot.data;
+                                      snapshot.data!;
                                   return Text(
                                     getJsonField(
                                       textGetValuationResponse.jsonBody,
@@ -762,7 +762,7 @@ class _VehicleValuationReportWidgetState
                                     ),
                                   );
                                 }
-                                final textGetValuationResponse = snapshot.data;
+                                final textGetValuationResponse = snapshot.data!;
                                 return Text(
                                   getJsonField(
                                     textGetValuationResponse.jsonBody,
@@ -811,7 +811,7 @@ class _VehicleValuationReportWidgetState
                         ),
                       );
                     }
-                    final buttonGetValuationResponse = snapshot.data;
+                    final buttonGetValuationResponse = snapshot.data!;
                     return FFButtonWidget(
                       onPressed: () async {
                         await launchURL(getJsonField(

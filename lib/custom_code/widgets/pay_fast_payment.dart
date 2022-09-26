@@ -9,13 +9,13 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class PayFastPayment extends StatefulWidget {
   const PayFastPayment({
-    Key key,
+    Key? key,
     this.width,
     this.height,
   }) : super(key: key);
 
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
 
   @override
   _PayFastPaymentState createState() => _PayFastPaymentState();

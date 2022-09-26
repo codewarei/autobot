@@ -8,7 +8,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class GetValuationCall {
   static Future<ApiCallResponse> call({
-    String vinNumber = '',
+    String? vinNumber = '',
   }) {
     final body = '''
 {
@@ -57,9 +57,9 @@ class ApiPagingParams {
   dynamic lastResponse;
 
   ApiPagingParams({
-    this.nextPageNumber,
-    this.numItems,
-    this.lastResponse,
+    required this.nextPageNumber,
+    required this.numItems,
+    required this.lastResponse,
   });
 
   @override

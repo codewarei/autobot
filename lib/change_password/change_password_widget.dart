@@ -9,14 +9,14 @@ import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ChangePasswordWidget extends StatefulWidget {
-  const ChangePasswordWidget({Key key}) : super(key: key);
+  const ChangePasswordWidget({Key? key}) : super(key: key);
 
   @override
   _ChangePasswordWidgetState createState() => _ChangePasswordWidgetState();
 }
 
 class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
-  TextEditingController emailTextController;
+  TextEditingController? emailTextController;
   final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -25,7 +25,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
     super.initState();
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (emailTextController.text.isEmpty) {
+      if (emailTextController!.text.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -36,7 +36,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
         return;
       }
       await resetPassword(
-        email: emailTextController.text,
+        email: emailTextController!.text,
         context: context,
       );
     });
@@ -69,9 +69,9 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
             ),
           );
         }
-        List<UsersRecord> changePasswordUsersRecordList = snapshot.data;
+        List<UsersRecord> changePasswordUsersRecordList = snapshot.data!;
         // Return an empty Container when the document does not exist.
-        if (snapshot.data.isEmpty) {
+        if (snapshot.data!.isEmpty) {
           return Container();
         }
         final changePasswordUsersRecord =
@@ -213,7 +213,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                 child: FFButtonWidget(
                                   onPressed: () async {
                                     Navigator.pop(context);
-                                    if (emailTextController.text.isEmpty) {
+                                    if (emailTextController!.text.isEmpty) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
                                         SnackBar(
@@ -225,7 +225,7 @@ class _ChangePasswordWidgetState extends State<ChangePasswordWidget> {
                                       return;
                                     }
                                     await resetPassword(
-                                      email: emailTextController.text,
+                                      email: emailTextController!.text,
                                       context: context,
                                     );
                                   },

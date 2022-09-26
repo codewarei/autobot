@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "459013878821",
+    "project_id": "sa-values-app",
+    "storage_bucket": "sa-values-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459013878821:android:556ef93f0e3b6d98e63bcc",
+        "android_client_info": {
+          "package_name": "com.mycompany.carvalues"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459013878821-7f3u4bl9316gufc8ej8tuk8blkemu2ru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.carvalues",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "459013878821-185t5vq7f0a9ghb2t2781eubp3bncpp1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvML0kyPjuMeZzJcLkR-tk5JItmRvc12c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459013878821-185t5vq7f0a9ghb2t2781eubp3bncpp1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "459013878821-npdpffv04m2gg1kqklhrat9kbjab0256.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.carvalues"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
